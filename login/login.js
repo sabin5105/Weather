@@ -1,4 +1,4 @@
-const mysql = require('mysql');
+const mysql = require('mysql2');
 const express = require('express');
 const session = require('express-session');
 const path = require('path');
@@ -8,7 +8,7 @@ const connection = mysql.createConnection({
     user: 'root',
     password: '5105',
     database: 'awp',
-    port: 3306
+	port: 3306
 });
 
 const app = express();
@@ -36,7 +36,7 @@ app.post('/auth', function(request, response) {
 	// Ensure the input fields exists and are not empty
 	if (username && password) {
 		// Execute SQL query that'll select the account from the database based on the specified username and password
-		connection.query('SELECT * FROM accounts WHERE username = ? AND password = ?', [username, password], function(error, results, fields) {
+		connection.query('SELECT * FROM userTable WHERE username = ? AND password = ?', [username, password], function(error, results, fields) {
 			// If there is an issue with the query, output the error
 			if (error) throw error;
 			// If the account exists
