@@ -21,6 +21,8 @@ btn.addEventListener('click', function(){
         var tempature = data['main']['temp']
         var wndspd = data['wind']['speed']
         var dt = data['dt']
+        var lat = data['coord']['lat']
+        var lon = data['coord']['lon']
         dt = new Date(dt*1000)
 
         city.innerHTML=`Weather of <span>${nameval}<span>`
@@ -28,6 +30,11 @@ btn.addEventListener('click', function(){
         description.innerHTML = `Sky Conditions: <span>${descrip}<span>`
         wind.innerHTML = `Wind Speed: <span>${wndspd} km/h<span>`
         time.innerHTML = `Time: <span>${dt}<span>`
+        coord.innerHTML = `Coordinates: <span>
+        <br>
+        Latitude: ${lat} <br>
+        Longitude: ${lon}<span>`
+
     })
     .catch(err => alert('You entered Wrong city name'))
 })
