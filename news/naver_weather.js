@@ -1,7 +1,6 @@
 const request = require("request");
 const cheerio = require("cheerio");
 const iconv = require("iconv-lite");
-
 const getNews = () => {
     request(
     {
@@ -40,4 +39,4 @@ const getNews = () => {
   });
 };
 
-getNews();
+setInterval(getNews, 1000 * 60 * 10); // 10분마다 실행
