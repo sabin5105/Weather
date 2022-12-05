@@ -1,26 +1,39 @@
-const options = {
-    // Required: API key
-    key: 'Gfmo3QA1KzPwsMFABm9AVIPNPbbZqbIp', // REPLACE WITH YOUR KEY !!!
+apik = "" // api key
 
-    // Put additional console output
-    verbose: true,
+let lat= 37.57002838826;
+let lon= 126.97962084516;
 
-    // Optional: Initial state of the map
-    lat: 37.57002838826,
-    lon: 126.97962084516,
-    zoom: 5,
-};
+fetch('https://api.openweathermap.org/data/2.5/weather?q='+window.location.search.split('=')[1]+'&appid='+apik)
+.then(res => res.json())
+    .then(data => {
+        lat = data['coord']['lat']
+        lon = data['coord']['lon']
 
-// Initialize Windy API
-windyInit(options, windyAPI => {
-    // windyAPI is ready, and contain 'map', 'store',
-    // 'picker' and other usefull stuff
+        const options = {
+            // Required: API key
+            key: 'Gfmo3QA1KzPwsMFABm9AVIPNPbbZqbIp',
 
-    const { map } = windyAPI;
-    // .map is instance of Leaflet map
+            // Put additional console output
+            verbose: true,
 
-    L.popup()
-        .setLatLng([options.lat, options.lon])
-        .setContent('Here you are!')
-        .openOn(map);
-});
+            // seoul    
+            lat: lat,
+            lon: lon,
+            zoom: 5,
+        };
+
+        // Initialize Windy API
+        windyInit(options, windyAPI => {
+
+            const { map } = windyAPI;
+            // .map is instance of Leaflet map
+
+            // L.popup()
+            //     .setLatLng([options.lat, options.lon])
+            //     .setContent('Here you are!')
+            //     .openOn(map);
+
+            setLatLng([options.lat, options.lon]);
+            openOn(map);
+        });
+    })

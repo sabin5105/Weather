@@ -3,6 +3,7 @@ const express = require('express');
 const session = require('express-session');
 const path = require('path');
 
+// mysql connection
 const connection = mysql.createConnection({
     host: '127.0.0.1',
     user: 'root',
@@ -20,10 +21,20 @@ app.use(session({
 }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, 'static')));
+app.use('/public', express.static(__dirname + '/public'));
 
 // http://localhost:3000/
 app.get('/', function(request, response) {
+	response.sendFile(path.join(__dirname + '/../search/index.html'));
+});
+
+// http://localhost:3000/main
+app.get('/main', function(request, response) {
+	response.sendFile(path.join(__dirname + '/index.html'));
+});
+
+// http://localhost:3000/login
+app.get('/login', function(request, response) {
 	// Render login template
 	response.sendFile(path.join(__dirname + '/login.html'));
 });

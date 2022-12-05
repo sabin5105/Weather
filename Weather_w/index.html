@@ -1,106 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="index.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="https://kit.fontawesome.com/8eb5905426.js" crossorigin="anonymous"></script>
-    <title>Weather Website</title>
-    <script src="./leaflet.js", ></script>
-        <script type="text/javascript" src="./libBoot.js"></script>
-        <style>
-            #windy {
-                width: 100%;
-                height: 300px;
-                position: absolute;
-                top: 30%;
-            }
-        </style>
-</head>
-<body>
-
-        <nav class="navMenu">
-          <a href="index.html">Home</a>
-          <a href="#">News</a>
-          <a href="#">About</a>
-          <a href="help.html">Help</a>
-          <div class="dot"></div>
-        </nav>
-            <a href="login.html" button class="login-button" ><span>Login</span></button></a>
-        <div id="windy"></div>
-        <script src="script.js"></script>
-            <div class="box">
-                <div class="search">
-                    <i class="fas fa-search"></i>
-                    <input type="text">
-                    <i class="fas fa-keyboard"></i>
-                    <span style="color:#4f86ec"><i class="fas fa-microphone" ></i>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Weather Website</title>
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&amp;display=swap" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+        <!-- kakao share -->
+        <script src="kakaobtn.js"></script>
+        <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.0.1/kakao.min.js"
+        integrity="sha384-eKjgHJ9+vwU/FCSUG3nV1RKFolUXLsc6nLQ2R1tD0t4YFPCvRmkcF8saIfOZNWf/" crossorigin="anonymous"></script>
+        <script>
+            Kakao.init(''); // api key - js
+        </script>
+    </head>
+    <body>
+        <!-- Background Video-->
+        <video class="bg-video" playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop"><source src="assets/mp4/bg.mp4" type="video/mp4" /></video>
+        <!-- Masthead-->
+        <div class="masthead">
+            <div class="masthead-content text-white">
+                <div class="container-fluid px-4 px-lg-0">
+                    <h1 class="fst-italic lh-1 mb-4">How's the weather?</h1>
+                    <p class="mb-5">We provide convenience to users by providing weather satellite radar and providing news to get the details.</p>
+                    <!-- * * * * * * * * * * * * * * *-->
+                    <!-- * * SB Forms Contact Form * *-->
+                    <!-- * * * * * * * * * * * * * * *-->
+                    <!-- This form is pre-integrated with SB Forms.-->
+                    <!-- To make this form functional, sign up at-->
+                    <!-- https://startbootstrap.com/solution/contact-forms-->
+                    <!-- to get an API token!-->
+                    <form id="contactForm" data-sb-form-api-token="API_TOKEN" action="/main">
+                        <div class="row input-group-newsletter">
+                                <div class="col"><input class="form-control" id="emailAddress" type="text" placeholder="Enter your location..." aria-describedby="button-submit" name="location" /></div>
+                                <div class="col-auto"><button class="btn btn-primary" id="button-submit" type="submit">Search</button></div>
+                            </form>
+                        </div>
+                        <!-- Submit success message-->
+                        <!---->
+                        <!-- This is what your users will see when the form-->
+                        <!-- has successfully submitted-->
+                        <section class="display">
+                            <div class="wrapper">
+                                <h2 id="cityoutput"></h2>
+                                <p id="description"></p>
+                                <p id="temp"></p>
+                                <p id="wind"></p>
+                                <p id="time"></p>
+                                <p id="coord"></p>
+                            </div>
+                        </section>
+                        <!-- Submit error message-->
+                        <!---->
+                        <!-- This is what your users will see when there is-->
+                        <!-- an error submitting the form-->
+                        <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3 mt-2">Error sending message!</div></div>
+                    </form>
                 </div>
             </div>
-          <div class="s_box"> </div>
-            <div class="s_box_font">Rain&nbsp;tomorrow&nbsp;through&nbsp;next&nbsp;Monday.</div>
-          <div class="last"> 
-                <footer class="bg-light text-center text-white">
-                    <!-- Grid container -->
-                    <div class="container p-4 pb-0">
-                    <!-- Section: Social media -->
-                    <section class="mb-4">
-                        <!-- Facebook -->
-                        <a
-                        class="btn text-white btn-floating m-1"
-                        style="background-color: #3b5998;"
-                        href="#!"
-                        role="button">
-                        <i class="fab fa-facebook-f"></i></a>
-                
-                        <!-- Twitter -->
-                        <a
-                        class="btn text-white btn-floating m-1"
-                        style="background-color: #55acee;"
-                        href="#!"
-                        role="button"><i class="fab fa-twitter"></i></a>
-                
-                        <!-- Google -->
-                        <a
-                        class="btn text-white btn-floating m-1"
-                        style="background-color: #dd4b39;"
-                        href="#!"
-                        role="button"><i class="fab fa-google"></i></a>
-                
-                        <!-- Instagram -->
-                        <a
-                        class="btn text-white btn-floating m-1"
-                        style="background-color: #ac2bac;"
-                        href="#!"
-                        role="button"><i class="fab fa-instagram"></i></a>
-                
-                        <!-- Linkedin -->
-                        <a
-                        class="btn text-white btn-floating m-1"
-                        style="background-color: #0082ca;"
-                        href="#!"
-                        role="button"><i class="fab fa-linkedin-in"></i></a>
-                        <!-- Github -->
-                        <a
-                        class="btn text-white btn-floating m-1"
-                        style="background-color: #333333;"
-                        href="#!"
-                        role="button"><i class="fab fa-github"></i></a>
-                    </section>
-                    <!-- Section: Social media -->
-                    </div>
-                    <!-- Grid container -->
-                
-                    <!-- Copyright -->
-                    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-                    © 2020 Copyright:
-                    <a class="text-white" href="https://mdbootstrap.com/">MDBootstrap.com</a>
-                    </div>
-                    <!-- Copyright -->
-                </footer>
+        </div>
+        <!-- Social Icons-->
+        <!-- For more icon options, visit https://fontawesome.com/icons?d=gallery&p=2&s=brands-->
+        <div class="social-icons">
+            <div class="d-flex flex-row flex-lg-column justify-content-center align-items-center h-100 mt-3 mt-lg-0">
+                <a class="btn btn-dark m-3" id="kakaotalk-sharing-btn" href="javascript:kakaoShare();"><i class="far fa-comment-dots"></i></a>
+                <a class="btn btn-dark m-3" href="https://twitter.com/kma_skylove?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><i class="fab fa-twitter"></i></a>
+                <a class="btn btn-dark m-3" href="https://ko-kr.facebook.com/kmaskylove/"><i class="fab fa-facebook-f"></i></a>
+                <a class="btn btn-dark m-3" href="https://www.instagram.com/kma_skylove/"><i class="fab fa-instagram"></i></a>
             </div>
+        </div>
 
-</body>
+        <script src="information.js"></script>
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <!-- * *                               SB Forms JS                               * *-->
+        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+    </body>
 </html>

@@ -3,10 +3,11 @@ const express = require('express');
 const session = require('express-session');
 const path = require('path');
 
+// mysql connection
 const connection = mysql.createConnection({
     host: '127.0.0.1',
     user: 'root',
-    password: '5105',
+    password: '',
     database: 'awp',
 	port: 3306
 });
@@ -20,10 +21,27 @@ app.use(session({
 }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, 'static')));
+app.use(express.static(__dirname + '/'));
+var location = '';
+
 
 // http://localhost:3000/
 app.get('/', function(request, response) {
+	response.sendFile(path.join(__dirname + '/index.html'));
+});
+
+// http://localhost:3000/main
+app.get('/main', function(request, response) {
+	// get url
+	url = request.url;
+	if(url.indexOf('?') != -1){
+		location = url.split('?')[1].split('=')[1];
+	}
+	response.sendFile(path.join(__dirname + '/main.html'), {location: location});
+});
+
+// http://localhost:3000/login
+app.get('/login', function(request, response) {
 	// Render login template
 	response.sendFile(path.join(__dirname + '/login.html'));
 });
