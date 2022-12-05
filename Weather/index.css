@@ -1,0 +1,157 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  background: #272727;
+  font-family: "Montserrat", sans-serif;
+}
+
+.login-button {
+	display: inline-block;
+  position: fixed;
+  top: 14%;
+	width: 100px;
+	height: 33px;
+	text-align: center;
+	text-decoration: none;
+	line-height: 33px;
+	outline: none;
+  border-radius: 12px;
+  float: right;
+}
+.login-button::before,
+.login-button::after {
+	position: absolute;
+	z-index: -1;
+	display: block;
+	content: '';
+}
+.login-button,
+.login-button::before,
+.login-button::after {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	-webkit-transition: all .3s;
+	transition: all .3s;
+}
+.login-button {
+	background-color: #333;
+	color: #fff;
+}
+.login-button:hover {
+	background-color: #fddb3a;
+}
+
+.box{
+  width: 1239px;
+  height: 60px;
+  padding: 20px;
+  margin: 70px 0px;
+  background-color:whitesmoke;
+  display: block;
+}
+
+.search {
+  position: fixed;
+  top: 13%;
+  right: 33%;
+  text-align: center;
+  width: 400px;
+  margin: 0 auto;
+}
+input {
+  width: 100%;
+  border-radius: 20px;
+  border: 1px solid #bbb;
+  margin: 10px 0;
+  padding: 10px 12px;
+}
+.fa-search {
+  position: absolute;
+  left: 15px;
+  top: 20px;
+  margin: 0;
+}
+.fa-keyboard {
+  position: absolute;
+  right: 35px;
+  top: 20px;
+}
+.fa-microphone {
+  position: absolute;
+  right: 15px;
+  top: 20px;
+  color: blue;
+}
+
+.navMenu {
+  position: fixed;
+  top: 5%;
+  right: 33%;
+
+}
+
+.navMenu a {
+  color: #f6f4e6;
+  text-decoration: none;
+  font-size: 1.2em;
+  text-transform: uppercase;
+  font-weight: 500;
+  display: inline-block;
+  width: 80px;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.navMenu a:hover {
+  color: #fddb3a;
+}
+
+.navMenu .dot {
+  width: 6px;
+  height: 6px;
+  background: #fddb3a;
+  border-radius: 50%;
+  opacity: 0;
+  -webkit-transform: translateX(30px);
+  transform: translateX(30px);
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.navMenu a:nth-child(1):hover ~ .dot {
+  -webkit-transform: translateX(30px);
+  transform: translateX(30px);
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  opacity: 1;
+}
+
+.navMenu a:nth-child(2):hover ~ .dot {
+  -webkit-transform: translateX(110px);
+  transform: translateX(110px);
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  opacity: 1;
+}
+
+.navMenu a:nth-child(3):hover ~ .dot {
+  -webkit-transform: translateX(200px);
+  transform: translateX(200px);
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  opacity: 1;
+}
+
+.navMenu a:nth-child(4):hover ~ .dot {
+  -webkit-transform: translateX(285px);
+  transform: translateX(285px);
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  opacity: 1;
+}
