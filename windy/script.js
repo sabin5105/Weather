@@ -1,62 +1,39 @@
-const options = {
-    // Required: API key
-    key: '',
+apik = "" // api key
 
-    // Put additional console output
-    verbose: true,
+let lat= 37.57002838826;
+let lon= 126.97962084516;
 
-    // seoul    
-    lat: 37.57002838826,
-    lon: 126.97962084516,
-    zoom: 5,
-};
+fetch('https://api.openweathermap.org/data/2.5/weather?q='+window.location.search.split('=')[1]+'&appid='+apik)
+.then(res => res.json())
+    .then(data => {
+        lat = data['coord']['lat']
+        lon = data['coord']['lon']
 
-// Initialize Windy API
-windyInit(options, windyAPI => {
+        const options = {
+            // Required: API key
+            key: 'Gfmo3QA1KzPwsMFABm9AVIPNPbbZqbIp',
 
-    const { map } = windyAPI;
-    // .map is instance of Leaflet map
+            // Put additional console output
+            verbose: true,
 
-    // L.popup()
-    //     .setLatLng([options.lat, options.lon])
-    //     .setContent('Here you are!')
-    //     .openOn(map);
+            // seoul    
+            lat: lat,
+            lon: lon,
+            zoom: 5,
+        };
 
-    setLatLng([options.lat, options.lon]);
-    openOn(map);
-});
+        // Initialize Windy API
+        windyInit(options, windyAPI => {
 
+            const { map } = windyAPI;
+            // .map is instance of Leaflet map
 
-var x = document.getElementById("location");
+            // L.popup()
+            //     .setLatLng([options.lat, options.lon])
+            //     .setContent('Here you are!')
+            //     .openOn(map);
 
-function getLocation() {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(showPosition, showError);
-  } else { 
-    x.innerHTML = "Geolocation is not supported by this browser.";
-  }
-}
-
-function showPosition(position) {
-    latitude = position.coords.latitude;
-    longitude = position.coords.longitude;
-  x.innerHTML = "Latitude: " + position.coords.latitude + 
-  "<br>Longitude: " + position.coords.longitude;
-}
-
-function showError(error) {
-  switch(error.code) {
-    case error.PERMISSION_DENIED:
-      x.innerHTML = "User denied the request for Geolocation."
-      break;
-    case error.POSITION_UNAVAILABLE:
-      x.innerHTML = "Location information is unavailable."
-      break;
-    case error.TIMEOUT:
-      x.innerHTML = "The request to get user location timed out."
-      break;
-    case error.UNKNOWN_ERROR:
-      x.innerHTML = "An unknown error occurred."
-      break;
-  }
-}
+            setLatLng([options.lat, options.lon]);
+            openOn(map);
+        });
+    })
