@@ -1,37 +1,37 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width,minimum-scale=1">
-		<title>Login</title>
-        <!-- the form awesome library is used to add icons to our form -->
-		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
-        <!-- include the stylesheet file -->
-        <link href="login.css" rel="stylesheet" type="text/css">
-		<link rel="import" href="signup.html">
-	</head>
-	<body>
-		<div class="login">
-			<h1>Login</h1>
-			<!-- post form -->
-			<form action="/auth" method="post">
-				<label for="username">
-					<!-- font awesome icon -->
-					<i class="fas fa-user"></i>
-				</label>
-				<input type="text" name="username" placeholder="Username" id="username" required>
-				<label for="password">
-					<i class="fas fa-lock"></i>
-				</label>
-				<input type="password" name="password" placeholder="Password" id="password" required>
-				<input type="submit" value="Login">
-			</form>
 
-			<!--signup-->
-			<form action="/signup">
-				<p>Don't have an account?</p>
-				<input type="submit" value="Sign up">
-			</form>
-		</div>
-	</body>
-</html>
+ <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <title>Log in</title>
+
+    <link rel="stylesheet" href="login.css">
+    <link rel="import" href="signup.html">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+   
+ </head>
+
+ <body>
+   <div class="main">
+      <p class="sign">Login</p>
+
+      <form action="/auth" method="post">
+        <input class="un" type="text" name="username" placeholder="Username" id="username" required>
+        <input class="pass" type="password" name="password" id="password" placeholder="Password" required>
+        <input class="submit" type="submit" value="Log in"><a></a>
+      </form>
+
+        <p align="center">Or&nbsp;
+
+      <form action="/signup">
+        <input class="submit" type="submit" value="Sign up"><a></a>
+      </form>
+
+        <p class="forgot"><a href="#">Forgot Password?</p>
+     </div>
+ </body>
+
+ </html>
