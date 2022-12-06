@@ -23,6 +23,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(__dirname + '/'));
 app.use(express.static(__dirname + '/account'));
+app.use(express.static(__dirname + '/weatherInfo'));
+app.use(express.static(__dirname + '/weatherDetail'));
+app.use(express.static(__dirname + '/news'));
 var location = '';
 
 
