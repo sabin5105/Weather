@@ -1,6 +1,7 @@
 const mysql = require('mysql2');
 const express = require('express');
 const session = require('express-session');
+const fileStore = require('session-file-store')(session);
 const path = require('path');
 
 // mysql connection
@@ -16,8 +17,9 @@ const app = express();
 
 app.use(session({
 	secret: 'secret',
-	resave: true,
-	saveUninitialized: true
+	resave: false,
+	saveUninitialized: false,
+	store: new fileStore()
 }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -26,12 +28,15 @@ app.use(express.static(__dirname + '/account'));
 app.use(express.static(__dirname + '/weatherInfo'));
 app.use(express.static(__dirname + '/weatherDetail'));
 app.use(express.static(__dirname + '/news'));
-var location = '';
-
 
 // http://localhost:3000/
 app.get('/', function(request, response) {
+	if (request.session.loggedin) {
+		response.send('Welcome back, ' + request.session.username + '!');
+		response.sendFile(path.join(__dirname + '/my.html'));
+	} else {
 	response.sendFile(path.join(__dirname + '/index.html'));
+	}
 });
 
 // http://localhost:3000/main
@@ -42,6 +47,11 @@ app.get('/main', function(request, response) {
 		location = url.split('?')[1].split('=')[1];
 	}
 	response.sendFile(path.join(__dirname + '/main.html'), {location: location});
+});
+
+// http://localhost:3000/my
+app.get('/my', function(request, response) {
+	response.sendFile(path.join(__dirname + '/my.html'));
 });
 
 // http://localhost:3000/login
@@ -66,8 +76,8 @@ app.post('/auth', function(request, response) {
 				// Authenticate the user
 				request.session.loggedin = true;
 				request.session.username = username;
-				// Redirect to home page
-				response.redirect('/home');
+				// Redirect to the index page
+				response.redirect('/my');
 			} else {
 				response.send('Incorrect Username and/or Password!');
 			}			
@@ -84,7 +94,7 @@ app.get('/home', function(request, response) {
 	// If the user is loggedin
 	if (request.session.loggedin) {
 		// Output username
-		response.send('Welcome back, ' + request.session.username + '!');
+		response.send();
 	} else {
 		// Not logged in
 		response.send('Please login to view this page!');
@@ -132,10 +142,9 @@ app.post('/signauth', function(request, response) {
 						// Authenticate the user
 						request.session.loggedin = true;
 						request.session.username = username;
-						// Redirect to home page
-						response.redirect('/newaccount');
+						response.redirect('/');
 					} else {
-						response.send('Incorrect Username and/or Password!');
+						response.redirect('/login');
 					}
 					response.end();
 				});
