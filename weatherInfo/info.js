@@ -5,7 +5,7 @@ var temp = document.querySelector("#temp");
 var wind = document.querySelector("#wind");
 var time = document.querySelector("#time");
 
-apik = "fb187f9d42c55760eb1770dbbbc44a91"; // api key
+apik = ""; // api key
 
 function convertion(val) {
   return (val - 273).toFixed(2);

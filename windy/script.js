@@ -1,4 +1,4 @@
-apik = "fb187f9d42c55760eb1770dbbbc44a91" // api key
+apik = "" // api key
 
 let lat= 37.57002838826;
 let lon= 126.97962084516;
