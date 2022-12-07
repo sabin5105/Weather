@@ -8,7 +8,7 @@ const path = require('path');
 const connection = mysql.createConnection({
     host: '127.0.0.1',
     user: 'root',
-    password: '5105',
+    password: 'cometrue',
     database: 'awp',
 	port: 3306
 });
@@ -156,5 +156,6 @@ app.post('/signauth', function(request, response) {
 		response.end();
 	}
 });
+
 
 app.listen(3000);

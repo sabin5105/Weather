@@ -82,7 +82,8 @@ body {
   font-size: var(--bs-body-font-size);
   font-weight: var(--bs-body-font-weight);
   line-height: var(--bs-body-line-height);
-  color: var(--bs-body-color);
+  color: var(--bs-body-color)
+  ;
   text-align: var(--bs-body-text-align);
   background-color: var(--bs-body-bg);
   -webkit-text-size-adjust: 100%;
@@ -3031,13 +3032,13 @@ textarea.form-control-lg {
 
 .btn-primary {
   color: #fff;
-  background-color: #2a5555;
-  border-color: #2a5555;
+  background-color: #193232;
+  border-color: #193232;
 }
 .btn-primary:hover {
   color: #fff;
-  background-color: #244848;
-  border-color: #224444;
+  background-color: #162c2c;
+  border-color: #162c2c;
 }
 .btn-check:focus + .btn-primary, .btn-primary:focus {
   color: #fff;
@@ -11337,6 +11338,15 @@ video.bg-video {
   align-items: center;
   justify-content: center;
 }
+
+.back {
+  position: relative;
+  overflow-y: scroll;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .masthead:before {
   content: "";
   position: absolute;
@@ -11346,7 +11356,6 @@ video.bg-video {
   left: 0;
   height: 100%;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.85);
 }
 .masthead .masthead-content {
   position: relative;

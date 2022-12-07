@@ -1,106 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="index.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="https://kit.fontawesome.com/8eb5905426.js" crossorigin="anonymous"></script>
-    <title>Weather Website</title>
-    <script src="windy/leaflet.js", ></script>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Weather Website</title>
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+         <!-- Font Awesome icons (free version)-->
+         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+         <!-- Google fonts-->
+         <link rel="preconnect" href="https://fonts.gstatic.com" />
+         <link href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet" />
+         <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&amp;display=swap" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/main.css" rel="stylesheet" />
+        <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/footers/">
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+         <!-- windy -->
+        <script src="windy/leaflet.js", ></script>
         <script type="text/javascript" src="windy/libBoot.js"></script>
         <style>
             #windy {
-                width: 100%;
-                height: 300px;
-                position: absolute;
-                top: 30%;
+                width: 100vw;
+                height: 100vh;
+                position: relative;
             }
+
         </style>
-</head>
-<body>
-
-        <nav class="navMenu">
-          <a href="index.html">Home</a>
-          <a href="#">News</a>
-          <a href="#">About</a>
-          <a href="help.html">Help</a>
-          <div class="dot"></div>
-        </nav>
-            <a href="login.html" button class="login-button" ><span>Login</span></button></a>
-        <div id="windy"></div>
-        <script src="windy/script.js"></script>
-            <div class="box">
-                <div class="search">
-                    <i class="fas fa-search"></i>
-                    <input type="text">
-                    <i class="fas fa-keyboard"></i>
-                    <span style="color:#4f86ec"><i class="fas fa-microphone" ></i>
+    </head>
+    <body>
+        <div class="container">
+            <header class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top h">
+              <p class="col-md-4 mb-0 text-secondary">&copy; City's Weather</p>
+          
+              <ul class="nav col-md-4 justify-content-end">
+                <li class="nav-item"><a href="/" class="nav-link px-2 text-muted">Search</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Contact</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
+              </ul>
+            </header>
+            <section class="display">
+                <div class="wrapper">
+                    <p id="description"></p>
+                    <p id="coord"></p>
                 </div>
+            </section>
+          </div>
+            <div id="windy"></div>
+            <script src="windy/script.js"></script>
+            
+            <div class="social-icons">
+            <div class="d-flex flex-row flex-lg-column justify-content-center align-items-center h-100 mt-3 mt-lg-0">
+                <a class="btn btn-dark m-3" id="kakaotalk-sharing-btn" href="javascript:kakaoShare();"><i class="far fa-comment-dots"></i></a>
+                <a class="btn btn-dark m-3" href="https://twitter.com/kma_skylove?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><i class="fab fa-twitter"></i></a>
+                <a class="btn btn-dark m-3" href="https://ko-kr.facebook.com/kmaskylove/"><i class="fab fa-facebook-f"></i></a>
+                <a class="btn btn-dark m-3" href="https://www.instagram.com/kma_skylove/"><i class="fab fa-instagram"></i></a>
+                <a class="btn btn-dark m-3" href="/logout"><i class="fas fa-sign-out-alt"></i></a>
             </div>
-          <div class="s_box"> </div>
-            <div class="s_box_font">Rain&nbsp;tomorrow&nbsp;through&nbsp;next&nbsp;Monday.</div>
-          <div class="last"> 
-                <footer class="bg-light text-center text-white">
-                    <!-- Grid container -->
-                    <div class="container p-4 pb-0">
-                    <!-- Section: Social media -->
-                    <section class="mb-4">
-                        <!-- Facebook -->
-                        <a
-                        class="btn text-white btn-floating m-1"
-                        style="background-color: #3b5998;"
-                        href="#!"
-                        role="button">
-                        <i class="fab fa-facebook-f"></i></a>
-                
-                        <!-- Twitter -->
-                        <a
-                        class="btn text-white btn-floating m-1"
-                        style="background-color: #55acee;"
-                        href="#!"
-                        role="button"><i class="fab fa-twitter"></i></a>
-                
-                        <!-- Google -->
-                        <a
-                        class="btn text-white btn-floating m-1"
-                        style="background-color: #dd4b39;"
-                        href="#!"
-                        role="button"><i class="fab fa-google"></i></a>
-                
-                        <!-- Instagram -->
-                        <a
-                        class="btn text-white btn-floating m-1"
-                        style="background-color: #ac2bac;"
-                        href="#!"
-                        role="button"><i class="fab fa-instagram"></i></a>
-                
-                        <!-- Linkedin -->
-                        <a
-                        class="btn text-white btn-floating m-1"
-                        style="background-color: #0082ca;"
-                        href="#!"
-                        role="button"><i class="fab fa-linkedin-in"></i></a>
-                        <!-- Github -->
-                        <a
-                        class="btn text-white btn-floating m-1"
-                        style="background-color: #333333;"
-                        href="#!"
-                        role="button"><i class="fab fa-github"></i></a>
-                    </section>
-                    <!-- Section: Social media -->
+        </div>
+        <!-- footer -->
+        <div class="container">
+            <footer class="py-5">
+              <div class="row">
+                <div class="col-6 col-md-2 mb-3">
+                  <h5>Help</h5>
+                  <ul class="nav flex-column">
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Website</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Radar</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Icons and Units</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Need More Help?</a></li>
+                  </ul>
+                </div>
+          
+                <div class="col-6 col-md-2 mb-3">
+                  <h5>Contact</h5>
+                  <ul class="nav flex-column">
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">API Support</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">info@weather.net</a></li>
+                  </ul>
+                </div>
+          
+                <div class="col-6 col-md-2 mb-3">
+                  <h5>Privacy</h5>
+                  <ul class="nav flex-column">
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Personal Data</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Cookies</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Other Technologies</a></li>
+                  </ul>
+                </div>
+          
+                <div class="col-md-5 offset-md-1 mb-3">
+                  <form>
+                    <h5>Subscribe to our Website</h5>
+                    <p>Monthly digest of what's new and exciting from us.</p>
+                    <div class="d-flex flex-column flex-sm-row w-100 gap-2">
+                      <label for="newsletter1" class="visually-hidden">Email address</label>
+                      <input id="newsletter1" type="text" class="form-control" placeholder="Email address">
+                      <button class="btn btn-primary" type="button">Subscribe</button>
                     </div>
-                    <!-- Grid container -->
-                
-                    <!-- Copyright -->
-                    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-                    © 2020 Copyright:
-                    <a class="text-white" href="https://mdbootstrap.com/">MDBootstrap.com</a>
-                    </div>
-                    <!-- Copyright -->
-                </footer>
-            </div>
-
-</body>
+                  </form>
+                </div>
+              </div>
+          
+              <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
+                <p>&copy; 2022 Company, Inc. All rights reserved.</p>
+                <ul class="list-unstyled d-flex">
+                  <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"/></svg></a></li>
+                  <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"/></svg></a></li>
+                  <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"/></svg></a></li>
+                </ul>
+              </div>
+            </footer>
+          </div>
+          <script src="weatherInfo/info.js"></script>
+    </body>
 </html>

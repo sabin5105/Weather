@@ -7,7 +7,7 @@ var wind = document.querySelector('#wind')
 var time = document.querySelector('#time')
 var kakaoShare = document.querySelector('#kakaotalk-sharing-btn')
 
-apik = "" // api key
+apik = "fb187f9d42c55760eb1770dbbbc44a9" // api key
 
 function convertion(val){
     return (val - 273).toFixed(2)
