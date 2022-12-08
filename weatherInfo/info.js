@@ -5,7 +5,7 @@ var temp = document.querySelector("#temp");
 var wind = document.querySelector("#wind");
 var time = document.querySelector("#time");
 
-apik = "fb187f9d42c55760eb1770dbbbc44a91"; // api key
+apik = ""; // api key
 
 function convertion(val) {
   return (val - 273).toFixed(2);
@@ -29,15 +29,13 @@ window.onload = function () {
       console.log(data);
 
 
-      //   city.innerHTML = `Weather of <span>${nameval}<span>`;
-      //   temp.innerHTML = `Temperature: <span>${convertion(tempature)} C</span>`;
-      description.innerHTML = `Sky Conditions: <span>${descrip}<span>`;
-      //   wind.innerHTML = `Wind Speed: <span>${wndspd} km/h<span>`;
-      //   time.innerHTML = `Time: <span>${dt}<span>`;
-      coord.innerHTML = `Coordinates: <span>
-        <br>
-        Latitude: ${lat} <br>
-        Longitude: ${lon}<span>`;
+      temp.innerHTML = `<b>Temperature</b>: <span>${convertion(tempature)} C</span>`;
+      description.innerHTML = `<b>Sky Conditions</b>: <span>${descrip}<span>`;
+      wind.innerHTML = `<b>Wind Speed</b>: <span>${wndspd} km/h<span>`;
+      //time.innerHTML = `<b>Time</b>: <span>${dt}<span>`;
+      coord.innerHTML = `<span>
+        <b>Latitude</b>: ${lat} &nbsp;&nbsp;
+        <b>Longitude</b>: ${lon}<span>`;
     })
     .catch(err => alert('You entered Wrong city name'))
 };

@@ -40,12 +40,12 @@
                 <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
               </ul>
             </header>
-            <section class="display">
-                <div class="wrapper">
-                    <p id="description"></p>
-                    <p id="coord"></p>
-                </div>
-            </section>
+            <div class="wrapper">
+                  <div class="info"><p id="temp"></p></div>
+                  <div class="info"><p id="wind"></p></div>
+                  <div class="info"><p id="description"></p></div>
+                  <div class="info"><p id="coord"></p></div>
+            </div>
           </div>
             <div id="windy"></div>
             <script src="windy/script.js"></script>
@@ -100,7 +100,7 @@
                     <div class="d-flex flex-column flex-sm-row w-100 gap-2">
                       <label for="newsletter1" class="visually-hidden">Email address</label>
                       <input id="newsletter1" type="text" class="form-control" placeholder="Email address">
-                      <button class="btn btn-primary" type="button">Subscribe</button>
+                      <button class="btn btn-primary" type="button" onclick="location.href='/subscribe/subscribe.html'">Subscribe</button>
                     </div>
                   </form>
                 </div>

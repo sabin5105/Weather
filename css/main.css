@@ -14,4 +14,16 @@ h1{
     text-align: center;
 }
 
+.info{
+    float:left;
+    margin:0 10px;
+}
+
+.wrapper{
+    margin: 0 auto;
+    text-align: center;
+}
+
+
+
   
