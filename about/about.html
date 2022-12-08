@@ -14,20 +14,10 @@
          <link href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet" />
          <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&amp;display=swap" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/main.css" rel="stylesheet" />
+        <link href="../css/main.css" rel="stylesheet" />
         <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/footers/">
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-         <!-- windy -->
-        <script src="windy/leaflet.js", ></script>
-        <script type="text/javascript" src="windy/libBoot.js"></script>
-        <style>
-            #windy {
-                width: 100vw;
-                height: 100vh;
-                position: relative;
-            }
-
-        </style>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        
     </head>
     <body>
         <div class="container">
@@ -40,18 +30,8 @@
                 <li class="nav-item"><a href="/about/about.html" class="nav-link px-2 text-muted">About</a></li>
               </ul>
             </header>
-            <div class="wrapper">
-                  <div class="info"><p id="temp"></p></div>
-                  <div class="info"><p id="wind"></p></div>
-                  <div class="info"><p id="description"></p></div>
-                  <div class="info"><p id="coord"></p></div>
-            </div>
-          </div>
-            <div id="windy"></div>
-            <script src="windy/script.js"></script>
-            <div class="box">
-              <p id="str"></p>
-            </div>
+           
+          
           <div class="social-icons">
             <div class="d-flex flex-row flex-lg-column justify-content-center align-items-center h-100 mt-3 mt-lg-0">
                 <a class="btn btn-dark m-3" id="kakaotalk-sharing-btn" href="javascript:kakaoShare();"><i class="far fa-comment-dots"></i></a>
@@ -60,6 +40,19 @@
                 <a class="btn btn-dark m-3" href="https://www.instagram.com/kma_skylove/"><i class="fab fa-instagram"></i></a>
                 <a class="btn btn-dark m-3" href="/logout"><i class="fas fa-sign-out-alt"></i></a>
             </div>
+        </div><br>
+        <div class="box">
+            <div class="title h2"><b>About</b></div><br>
+            <div class="detail h5">Payments</div>
+                <p>Our Website may offer the opportunity to purchase access to the Service by means of one-time or recurring payments (“Subscription”) through an authorized Marketplace Provider. These payments require you to have an active account with a Marketplace Provider and provide a then-current and valid method of payment, such as a credit card or debit card (a "Payment Method"). Payments will be processed by your respective Marketplace Provider and not through our website. Any inquiries related to payments should be directed to your Marketplace Provider. You are responsible for all charges incurred in connection with your payments.</p><br>
+            <div class="detail h5">Subscriptions</div>
+                <p>By selecting a Subscription, you agree to pay the Marketplace Provider a subscription fee on a designated cycle for the Service (the "Subscription Fee"). Subject to the Free Trials and Promotional Offers section below, the first Subscription Fee will be charged to your Payment Method on the date the Marketplace Provider confirms your Subscription purchase. Thereafter, the Subscription Fee and any applicable tax and service fees will be charged to your Payment Method by your Marketplace Provider on a recurring basis in accordance with your designated cycle.</p><br>
+                <div class="detail h5">Free Trials and Promotional Offers</div>
+                <p>The Service may be made available to you on a free trial basis for a limited time ("Trial Subscription"). The specific duration of the Trial Subscription will be specified in the applicable offer at sign-up. Trial Subscriptions are limited to new Service subscribers, unless otherwise specified. Your status as a new subscriber to the Service will be determined by the Marketplace Provider and Dark Sky, each in its sole discretion. These Terms apply to any Trial Subscription, unless otherwise specified.
+                    At the time of signing up for a Trial Subscription, you must provide the Marketplace Provider with a valid Payment Method in order to use the Service during the Trial Subscription period. Your Payment Method will not be charged by the Marketplace Provider during the Trial Subscription Period, however a preauthorization may be used.
+                    UPON THE EXPIRATION OF THE TRIAL SUBSCRIPTION, THE SUBSCRIPTION FEE FOR THE SERVICE WILL BE CHARGED TO YOUR PAYMENT METHOD, UNLESS YOU TIMELY CANCEL THE TRIAL SUBSCRIPTION. PLEASE NOTE THAT YOU WILL NOT BE NOTIFIED THAT YOUR TRIAL SUBSCRIPTION WILL END OR HAS ENDED.
+                    To find additional details about your Trial Subscription, including the date the Trial Subscription ends, please contact your Marketplace Provider directly.
+                    No refunds, adjustments or price protection will be applied to your Subscription Fee in the event of a new/subsequent discount or promotional offering after you sign-up for the Service. New customers may take advantage of any "new customer" promotion only once. Requirements for a special promotion will be stated at the time each offer is presented. As a condition of these Terms, you agree not to register multiple times for the same promotional offer using multiple names, addresses, email addresses or other means. Any such action shall constitute a violation of these Terms and may result in the termination of your account.</p>
         </div>
         <!-- footer -->
         <div class="container">
@@ -118,7 +111,5 @@
               </div>
             </footer>
           </div>
-          <script src="weatherInfo/info.js"></script>
-          <script type="module" src="news/naver_weather.js"></script>
     </body>
 </html>

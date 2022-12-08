@@ -24,6 +24,17 @@ h1{
     text-align: center;
 }
 
+.box{
+    width:100%;
+    height: auto;
+}
 
 
+.title{
+    text-align: center;
+}
   
+.detail{
+    text-align: left;
+    font-weight: bold;
+}
