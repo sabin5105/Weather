@@ -7,7 +7,8 @@ var wind = document.querySelector('#wind')
 var time = document.querySelector('#time')
 var kakaoShare = document.querySelector('#kakaotalk-sharing-btn')
 
-apik = "fb187f9d42c55760eb1770dbbbc44a9" // api key
+
+apik = "" // api key
 
 function convertion(val){
     return (val - 273).toFixed(2)
@@ -20,11 +21,15 @@ btn.addEventListener('click', function(){
         var nameval = data['name']
         var descrip = data['weather']['0']['description']
         var tempature = data['main']['temp']
+        var pressure = data['main']['pressure']
+        var humidity = data['main']['humidity']
         var wndspd = data['wind']['speed']
         var dt = data['dt']
         var lat = data['coord']['lat']
         var lon = data['coord']['lon']
         dt = new Date(dt*1000)
+
+        
 
         city.innerHTML=`Weather of <span>${nameval}<span>`
         temp.innerHTML = `Temperature: <span>${ convertion(tempature)} C</span>`
@@ -32,6 +37,7 @@ btn.addEventListener('click', function(){
         wind.innerHTML = `Wind Speed: <span>${wndspd} km/h<span>`
         time.innerHTML = `Time: <span>${dt}<span>`
         coord.innerHTML = `Coordinates: <span>
+        
         <br>
         Latitude: ${lat} <br>
         Longitude: ${lon}<span>`
