@@ -7,6 +7,13 @@
         <meta name="author" content="" />
         <title>Weather Website</title>
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+        <!-- jquery add -->
+        <script type="text/javascript">   
+        $(document).ready( function() {
+          $("#headers").load("header/header.html");  
+        });
+        </script>
          <!-- Font Awesome icons (free version)-->
          <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
          <!-- Google fonts-->
@@ -41,23 +48,23 @@
               </ul>
             </header>
             <div class="wrapper">
-                  <div class="info"><p id="temp"></p></div>
-                  <div class="info"><p id="wind"></p></div>
-                  <div class="info"><p id="description"></p></div>
-                  <div class="info"><p id="coord"></p></div>
-            </div>
+              <div class="info"><p id="temp"></p></div>
+              <div class="info"><p id="wind"></p></div>
+              <div class="info"><p id="description"></p></div>
+              <div class="info"><p id="coord"></p></div>
+        </div>
           </div>
             <div id="windy"></div>
             <script src="windy/script.js"></script>
-            <div class="box">
-              <p id="title"></p>
+            <div class="news_box">
+              <div id="headers"></div>
             </div>
           <div class="social-icons">
             <div class="d-flex flex-row flex-lg-column justify-content-center align-items-center h-100 mt-3 mt-lg-0">
+                <a class="btn btn-dark m-3" href="https://twitter.com/intent/tweet"><i class="fab fa-twitter"></i></a>
+                <a class="btn btn-dark m-3" href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
                 <a class="btn btn-dark m-3" id="kakaotalk-sharing-btn" href="javascript:kakaoShare();"><i class="far fa-comment-dots"></i></a>
-                <a class="btn btn-dark m-3" href="https://twitter.com/kma_skylove?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><i class="fab fa-twitter"></i></a>
-                <a class="btn btn-dark m-3" href="https://ko-kr.facebook.com/kmaskylove/"><i class="fab fa-facebook-f"></i></a>
-                <a class="btn btn-dark m-3" href="https://www.instagram.com/kma_skylove/"><i class="fab fa-instagram"></i></a>
+                <a class="btn btn-dark m-3" href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
                 <a class="btn btn-dark m-3" href="/logout"><i class="fas fa-sign-out-alt"></i></a>
             </div>
         </div>
@@ -120,6 +127,5 @@
           </div>
           <script src="weatherInfo/info.js"></script>
           <script src="news/naver_weather.js"></script>
-          <script src="http://code.jquery.com/jquery-latest.js"></script> 
     </body>
 </html>

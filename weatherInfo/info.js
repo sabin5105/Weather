@@ -5,7 +5,7 @@ var temp = document.querySelector("#temp");
 var wind = document.querySelector("#wind");
 var time = document.querySelector("#time");
 
-apik = ""; // api key
+apik = "fb187f9d42c55760eb1770dbbbc44a91"; // api key
 
 function convertion(val) {
   return (val - 273).toFixed(2);
@@ -28,7 +28,6 @@ window.onload = function () {
 
       console.log(data);
 
-
       temp.innerHTML = `<b>Temperature</b>: <span>${convertion(tempature)} C</span>`;
       description.innerHTML = `<b>Sky Conditions</b>: <span>${descrip}<span>`;
       wind.innerHTML = `<b>Wind Speed</b>: <span>${wndspd} km/h<span>`;
@@ -37,5 +36,7 @@ window.onload = function () {
         <b>Latitude</b>: ${lat} &nbsp;&nbsp;
         <b>Longitude</b>: ${lon}<span>`;
     })
-    .catch(err => alert('You entered Wrong city name'))
+    .catch((err) => {
+      console.log(err);
+    });
 };

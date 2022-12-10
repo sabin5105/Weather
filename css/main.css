@@ -9,6 +9,9 @@ body{
     background-color: black;
 }
 
+ul{
+    list-style: none;
+}
 h1{
     color:white;
     text-align: center;
